@@ -36,22 +36,8 @@ body {
 #main {
 	position: relative;
 	overflow: hidden;
-}
-
-@media (max-width: 2000px) {
-	#page {
-		position: relative;
-		height: 100vh !important;
-		width: 100vw !important;
-		background-color: white;
-	}
-}
-
-#page {
-	position: relative;
-	height: 100vh !important;
-	width: 100vw !important;
-	background-color: white;
+	height: 100vh;
+	width: 100vw;
 }
 
 #page > video {
@@ -60,7 +46,7 @@ body {
 	object-fit: cover;
 }
 
-#page > nav {
+/* #page > nav {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -72,8 +58,8 @@ body {
 	left: 50%;
 	transform: translateX(-50%);
 	color: #fff;
-}
-#page > nav > button {
+} */
+/* #page > nav > button {
 	padding: 7px 20px;
 	border-radius: 50px;
 	border: none;
@@ -84,14 +70,29 @@ body {
 }
 #page > nav > h3 {
 	font-weight: 400;
+} */
+#page {
+	position: relative;
 }
+.background-overlay {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+	z-index: 1; /* Ensure the overlay is above the video */
+}
+
 #page > video {
 	height: 100%;
 	width: 50%;
 	object-fit: cover;
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
+	position: relative;
+	/* left: 50%;
+	transform: translateX(-50%); */
+}
+
+.intro {
+	@apply text-xl font-semibold;
 }
 #page-bottom {
 	height: 20%;
@@ -190,8 +191,8 @@ body {
 
 #page2 {
 	position: relative;
-	height: 100vh;
-	width: 100vw;
+	/* height: 100vh;
+	width: 100vw; */
 }
 #page2 > video {
 	height: 100%;
@@ -361,11 +362,12 @@ body {
 }
 #page6 > h3 {
 	margin-bottom: 1vw;
-	font-size: 2vw;
+	font-size: 28px;
+	font-weight: 500;
 }
 #page6 > h1 {
 	margin-bottom: 1.5vw;
-	font-size: 4vw;
+	font-size: 44px;
 }
 #page6 > p {
 	font-size: 1.2vw;
@@ -395,7 +397,7 @@ body {
 }
 #page8 > h1 {
 	width: 20%;
-	top: 50%;
+	top: 25%;
 	transform: translateY(-50%);
 	left: 5%;
 	font-size: 1.3vw;
@@ -415,7 +417,7 @@ body {
 }
 #page9 > h1 {
 	width: 20%;
-	top: 50%;
+	top: 5%;
 	transform: translateY(-50%);
 	right: 5%;
 	font-size: 1.3vw;
@@ -435,7 +437,7 @@ body {
 }
 #page10 > h1 {
 	width: 20%;
-	top: 50%;
+	top: 5%;
 	transform: translateY(-50%);
 	left: 5%;
 	font-size: 1.3vw;
@@ -455,7 +457,7 @@ body {
 }
 #page11 > h1 {
 	width: 20%;
-	top: 50%;
+	top: 5%;
 	transform: translateY(-50%);
 	right: 5%;
 	font-size: 1.3vw;
@@ -597,7 +599,6 @@ body {
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	background-color: #000;
 	color: #fff;
 }
 #page17 > h4 {
@@ -747,4 +748,42 @@ body {
 }
 .bg-black {
 	background: black;
+}
+
+.cardContainer {
+	background-color: blue;
+	/*margin: 20px;*/
+	display: flex;
+	flex-direction: column;
+	flex-grow: 2;
+	align-items: center;
+	box-shadow: 5px 4px 5px rgba(0, 0, 0, 0.4);
+}
+.titleContainer {
+	background-color: white;
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	margin-top: 5px;
+}
+#title {
+	flex-grow: 3;
+	position: relative;
+}
+
+#rating {
+	width: 40%;
+	background-color: orange;
+	flex-direction: row;
+}
+.cardImgContainer {
+	background-color: green;
+}
+
+.cardImgContainer img {
+	object-fit: fill;
+}
+
+.cardTextContainer {
+	background-color: red;
 }

@@ -1,0 +1,33 @@
+.card {
+	@apply bg-[#01294c] w-96 max-h-full rounded-xl px-8 py-8 mx-20;
+}
+
+.card img {
+	@apply max-h-20 w-full rounded-[20px];
+}
+
+.card h2 {
+	@apply text-xl font-bold mt-3;
+}
+
+.card p {
+	margin: 0;
+	margin-top: 0.5rem;
+	margin-bottom: 1.5rem;
+}
+
+.card .btnn {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.title {
+	@apply flex text-start justify-center;
+}
+
+.address {
+	@apply flex text-center justify-center  h-4 py-5;
+}
+.description {
+	@apply flex text-start justify-center;
+}

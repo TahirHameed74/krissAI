@@ -1,0 +1,16 @@
+.root {
+	@apply border-b-[2px] border-[black] py-4 rounded-none	border-[#111B2121];
+}
+
+.title {
+	@apply flex;
+}
+.wrapper {
+	@apply flex justify-between items-center cursor-pointer;
+}
+.content {
+	@apply pt-1 text-sm leading-5;
+}
+.changeColor {
+	filter: brightness(0.3);
+}

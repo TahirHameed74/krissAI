@@ -3,16 +3,73 @@ import gsap from "gsap";
 import { useEffect, useLayoutEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import SplitText from "gsap-trial/SplitText";
+import React from "react";
 
+import { v4 as uuidv4 } from "uuid";
+import Card from "../components/Card/Card";
+import Carousel from "../components/Card/Carroussel";
+import Works from "../components/Pricing/works";
+import {
+	Animator,
+	ScrollContainer,
+	ScrollPage,
+	batch,
+	Fade,
+	FadeIn,
+	FadeOut,
+	Move,
+	MoveIn,
+	MoveOut,
+	Sticky,
+	StickyIn,
+	StickyOut,
+	Zoom,
+	ZoomIn,
+	ZoomOut,
+} from "react-scroll-motion";
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(SplitText); // Register SplitText plugin
 
 export default function Home() {
+	const ZoomInScrollOut = batch(StickyIn(), FadeIn(), ZoomIn());
+	const FadeUp = batch(Fade(), Move(), Sticky());
 	const main = useRef<HTMLDivElement>(null);
+
+	let cards = [
+		{
+			client: "Dr. Vu",
+			address: "A General Dentist in Houston, TX",
+			description:
+				"As a busy dentist, patient engagement is crucial yet time-consuming. With the help of the AI chatbot, we’ve streamlined appointment scheduling, dental inquiries, & follow-up care. This technology has incredibly reduced our administrative workload, allowing us to focus more on providing top-notch oral care to our patients. It’s like having an extra pair of hands that work 24/7!",
+			imagen: "../images/drV.png",
+		},
+		{
+			client: "Dr. Tran and Dr. Nguyen",
+			address: "Cosmetic Dentists Located in Memorial City, TX",
+			description:
+				"Integrating an AI chatbot into our dental practice has dramatically enhanced our patient service. It instantly addresses patient questions, offering them convenient and comprehensive responses. Our patients are happier with the quick, around-the-clock assistance, and our staff is relieved from the constant ringing of phones. It’s a win-win solution for us!",
+			imagen: "../images/drT.png",
+		},
+	];
 
 	useGSAP(
 		() => {
-			gsap.to(".intro", { rotation: "+=360", duration: 3 });
+			const split = new SplitText(".intro", { type: "chars" });
+
+			gsap.from(split.chars, {
+				duration: 5,
+				opacity: 0,
+				x: "-100%", // Start from the left
+				y: "100%", // Start from the bottom
+				ease: "power4.out",
+				stagger: {
+					amount: 0.1, // Stagger the animation for each character
+					grid: "auto", // Arrange chars in a grid
+					from: "start", // Start from the first char
+				},
+			});
 
 			gsap.to(".logoBanner", { rotation: "+=360", duration: 3 });
 
@@ -23,13 +80,26 @@ export default function Home() {
 					end: "bottom top",
 				},
 			});
+			// var boxes = gsap
+			// 	.timeline({
+			// 		scrollTrigger: {
+			// 			trigger: "#main",
+			// 			pin: true,
+			// 			start: "top top",
+			// 			end: "+=3000",
+			// 			scrub: 0.3,
+			// 		},
+			// 		defaults: { duration: 0.4 },
+			// 	})
+			// 	.fromTo("#page>.background-overlay", { opacity: 0 }, { opacity: 1 })
+			// 	// .fromTo(".background-overlay", { opacity: 1 }, { opacity: 0 })
+			// 	.to({}, { duration: 0.4 });
 
 			var tl = gsap.timeline({
 				scrollTrigger: {
 					trigger: `#page1`,
 					start: `top top`,
 					scrub: 1,
-					// end: "bottom top", // This will give more room for scrolling through animations
 					pin: true,
 				},
 			});
@@ -120,7 +190,31 @@ export default function Home() {
 			tl2.to("#page4>#center-page4", {
 				top: `-50%`,
 			});
+
+			var testimonial = gsap.timeline({
+				scrollTrigger: {
+					trigger: ".testimonial",
+					start: "top top",
+					scrub: 1,
+					pin: true,
+				},
+			});
+
+			testimonial.fromTo(
+				".testimonial",
+				{
+					x: -100, // Move cards from left to right
+					opacity: 0, // Optionally fade in the cards
+					duration: 1, // Animation duration
+				},
+				{
+					x: "0%", // Move cards to original position (left)
+					y: "0%",
+					opacity: 1, // Make cards visible
+				}
+			);
 		},
+
 		{ scope: main }
 	);
 
@@ -134,11 +228,11 @@ export default function Home() {
 						autoPlay
 						loop
 						muted></video>
-					<nav>
+					{/* <nav>
 						<h3>Kriss AI</h3>
 						<button>Login</button>
 						<button>Sign Up</button>
-					</nav>
+					</nav> */}
 					<div id="page-bottom">
 						<h3 className="intro">Introduction</h3>
 						<img
@@ -177,11 +271,7 @@ export default function Home() {
 							For Questions About Billing, Coding, And Insurance{" "}
 						</span>
 					</h5>
-					<video
-						src="https://www.apple.com/105/media/us/apple-vision-pro/2023/7e268c13-eb22-493d-a860-f0637bacb569/anim/foundation-spatial-computing/large.mp4"
-						autoPlay
-						loop
-						muted></video>
+					<video src="/section2.mp4" autoPlay loop muted></video>
 				</div>
 
 				<div id="page2">
@@ -195,26 +285,9 @@ export default function Home() {
 						to interact with patients, doctors, and office staff in a dynamic
 						manner
 					</h2>
-					<video
-						src="https://www.apple.com/105/media/us/apple-vision-pro/2023/7e268c13-eb22-493d-a860-f0637bacb569/anim/foundation-digital-canvas/large.mp4"
-						autoPlay
-						loop
-						muted></video>
+					<video src="/section3.mp4" autoPlay loop muted></video>
 				</div>
-				<div id="page3">
-					<div id="page3-upper">
-						<img
-							src="https://www.apple.com/v/apple-vision-pro/a/images/overview/intro/logo__4zgkuyebgtem_large.png"
-							alt=""
-						/>
-						<div id="page3-upper-inner">
-							<h3>WATCH THE FILM</h3>
-							<h3>WATCH THE EVENT </h3>
-						</div>
-					</div>
-					<img src="./images/Apple vision image.png" alt="" />
-					<button>+ Take a closer look at Vision Pro</button>
-				</div>
+
 				<div id="page4">
 					<div id="center-page4">
 						<h1 className=" text-5xl">What is Kriss AI</h1>
@@ -241,8 +314,11 @@ export default function Home() {
 					</div>
 				</div>
 				<div id="page6">
-					<h3>Design</h3>
-					<h1>Designed by Apple.</h1>
+					<h3>Advantages</h3>
+					<h1>
+						KRISS.AI can significantly benefit your dental office in several
+						ways
+					</h1>
 					<p>
 						Apple Vision Pro is the result of decades of experience designing
 						high‑performance, mobile, and wearable devices — culminating in the
@@ -254,107 +330,65 @@ export default function Home() {
 						your face. Light Seal. The Light Seal
 					</p>
 				</div>
-				<div id="page7">
+				{/* <div id="page7">
 					<canvas></canvas>
-				</div>
+				</div> */}
 				<div id="page8">
 					<h1>
-						<span>Setup</span> Choose the plan that fits your practice needs.
-						Our standard plan is full of benefits for every person in your
-						dental office - from the patient to the dentist. Our premium plan
-						will be launching soon with more invaluable tools for the doctor and
-						the office staff.
+						<span>24/7 Patient Experience</span> Unlike traditional chatbots,
+						KRISS.AI interacts dynamically with patients, understanding unique
+						questions & concerns. KRISS.AI answers questions outside normal
+						office hours, enhancing customer experience & satisfaction.
 					</h1>
 				</div>
 				<div id="page9">
 					<h1>
-						<span>Integration</span> Work with your local rep and a KRISS.AI
-						onboarder to ensure KRISS knows every important detail about your
-						practice. What insurance do you take? What equipment do you have?
-						The KRISS.AI team will train KRISS so she answers your patients the
-						way you want her to, every time.
+						<span>Reduce Office Workload </span>KRISS handles customer inquiries
+						to allow your staff to focus their efforts on in-office customers
+						and tasks. She can assist with clinical notes and insurance
+						narratives to further improve office efficiency.
 					</h1>
 				</div>
 				<div id="page10">
 					<h1>
-						<span> Interaction </span>KRISS.AI is ready to answer patient
-						questions about treatments, practitioner questions about clinical
-						situations, and team questions about billing, coding, and insurance.
-						Natural language processing creates a human-like conversation,
-						enhancing the patient’s experience.
+						<span> Grow Your Practice </span>KRISS.AI increases the number of
+						scheduled appointments by improving patient trust and case
+						acceptance rates. Personalized customer interaction reduces website
+						abandonment, growing your customer base while increasing sales and
+						revenue.
 					</h1>
 				</div>
 				<div id="page11">
 					<h1>
-						<span> Interaction </span>KRISS.AI is ready to answer patient
-						questions about treatments, practitioner questions about clinical
-						situations, and team questions about billing, coding, and insurance.
-						Natural language processing creates a human-like conversation,
-						enhancing the patient’s experience.
+						<span> Expert Resource </span>Whether a practitioner has a question
+						about procedures or a team member has questions about billing and
+						coding, KRISS.AI will serve as an expert resource, providing
+						accurate answers in an instant.
 					</h1>
 				</div>
-				<div id="page12">
-					<h1>
-						<span>Sound. </span>Speakers positioned close to your ears deliver
-						rich Spatial Audio while keeping you aware of your surroundings.
-					</h1>
-				</div>
-				<div id="page13">
-					<h1>
-						<span>EyeSight.</span> An outward display reveals your eyes while
-						wearing Vision Pro, letting others know when you are using apps or
-						fully immersed.
-					</h1>
-				</div>
-				<div id="page14">
-					<div className="left14"></div>
-					<div className="right14"></div>
-				</div>
-				<div id="page15">
-					<div id="center-page15">
-						<video
-							src="https://www.apple.com//105/media/us/apple-vision-pro/2023/7e268c13-eb22-493d-a860-f0637bacb569/anim/glass/large_2x.mp4"
-							autoPlay
-							loop
-							muted></video>
+				<div className="bg-white">
+					<div className="text-white testimonial">
+						<div className="flex flex-col justify-center text-center">
+							<h4 className="text-3xl font-medium my-10 text-black">
+								See KRISS.AI at work
+							</h4>
+							<p className="text-xl text-[#1BB5C5]">
+								Click a Case Study and chat with KRISS.AI now
+							</p>
+						</div>
+						<div className="flex justify-center my-10 ">
+							{cards.map((card) => (
+								<Card
+									client={card.client}
+									address={card.address}
+									description={card.description}
+									imagen={card.imagen}
+								/>
+							))}
+						</div>
 					</div>
-				</div>
-				<div id="page16">
-					<h2>
-						A singular piece of
-						<span>three-dimensionally formed laminated glass</span> acts as an
-						optical surface for the cameras and sensors that view the world. It
-						flows seamlessly into a custom aluminum alloy frame that gently
-						curves to wrap around your face while serving as an attachment point
-						for the
-						<span>Light Seal.</span>
-					</h2>
-					<img
-						src="https://www.apple.com/v/apple-vision-pro/a/images/overview/design/light_seal__fo87cv0zkcmm_large.jpg"
-						alt=""
-					/>
-					<button>+ Learn more about design</button>
-				</div>
-				<div className="bg-black">
-					<div id="page17">
-						<h4>Technology</h4>
-						<h1>
-							Innovation you can <br />
-							see, hear, and feel.
-						</h1>
-						<p>
-							<span>Pushing boundaries from the inside out.</span> Spatial
-							experiences on Vision Pro are only possible through groundbreaking
-							Apple technology. Displays the size of a postage stamp that
-							deliver more pixels than a 4K TV to each eye. Incredible advances
-							in Spatial Audio. A revolutionary dual‑chip design featuring
-							custom Apple silicon. A sophisticated array of cameras and
-							sensors. All the elements work together to create an unprecedented
-							experience you have to see to believe.
-						</p>
-					</div>
-					<div id="page18">
-						<canvas></canvas>
+					<div className="bg-[#01294c]">
+						<Works />
 					</div>
 					<div id="page19">
 						<h1>More pixels than a 4K TV. For each eye.</h1>

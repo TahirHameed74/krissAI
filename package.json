@@ -1,28 +1,39 @@
 {
-  "name": "krissai",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@gsap/react": "^2.1.0",
-    "next": "14.1.3",
-    "react": "^18",
-    "react-dom": "^18"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "autoprefixer": "^10.0.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.1.3",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0",
-    "typescript": "^5"
-  }
+	"name": "krissai",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@gsap/react": "^2.1.0",
+		"clsx": "^2.1.0",
+		"framer-motion": "^11.0.20",
+		"gsap-trial": "^3.12.5",
+		"install": "^0.13.0",
+		"next": "14.1.3",
+		"npm": "^10.5.0",
+		"react": "^18",
+		"react-dom": "^18",
+		"react-scroll-motion": "^0.3.3",
+		"react-spring": "^9.7.3",
+		"react-spring-3d-carousel": "^1.3.4",
+		"react-tilt": "^1.0.2",
+		"uuid": "^9.0.1"
+	},
+	"devDependencies": {
+		"@types/node": "^20",
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"@types/uuid": "^9.0.8",
+		"autoprefixer": "^10.0.1",
+		"eslint": "^8",
+		"eslint-config-next": "14.1.3",
+		"postcss": "^8",
+		"tailwindcss": "^3.3.0",
+		"typescript": "^5"
+	}
 }
