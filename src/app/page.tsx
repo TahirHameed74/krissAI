@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { useEffect, useLayoutEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import SplitText from "gsap-trial/SplitText";
+// import SplitText from "gsap-trial/SplitText";
 import React from "react";
 
 import { v4 as uuidv4 } from "uuid";
@@ -30,7 +30,7 @@ import {
 } from "react-scroll-motion";
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(useGSAP);
-gsap.registerPlugin(SplitText); // Register SplitText plugin
+// gsap.registerPlugin(SplitText); // Register SplitText plugin
 
 export default function Home() {
 	const ZoomInScrollOut = batch(StickyIn(), FadeIn(), ZoomIn());
@@ -56,20 +56,20 @@ export default function Home() {
 
 	useGSAP(
 		() => {
-			const split = new SplitText(".intro", { type: "chars" });
+			// const split = new SplitText(".intro", { type: "chars" });
 
-			gsap.from(split.chars, {
-				duration: 5,
-				opacity: 0,
-				x: "-100%", // Start from the left
-				y: "100%", // Start from the bottom
-				ease: "power4.out",
-				stagger: {
-					amount: 0.1, // Stagger the animation for each character
-					grid: "auto", // Arrange chars in a grid
-					from: "start", // Start from the first char
-				},
-			});
+			// gsap.from(split.chars, {
+			// 	duration: 5,
+			// 	opacity: 0,
+			// 	x: "-100%", // Start from the left
+			// 	y: "100%", // Start from the bottom
+			// 	ease: "power4.out",
+			// 	stagger: {
+			// 		amount: 0.1, // Stagger the animation for each character
+			// 		grid: "auto", // Arrange chars in a grid
+			// 		from: "start", // Start from the first char
+			// 	},
+			// });
 
 			gsap.to(".logoBanner", { rotation: "+=360", duration: 3 });
 
