@@ -4,7 +4,7 @@ import { useSpring, animated } from "react-spring";
 import Button from "../../components/Button/Button";
 
 function Card({ client, address, description, imagen }) {
-	const [show, setShown] = useState(false);
+	// const [show, setShown] = useState(false);
 
 	return (
 		<div className={Styles.card}>
