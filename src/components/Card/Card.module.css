@@ -2,7 +2,7 @@
 	@apply bg-[#01294c] w-96 max-h-full rounded-xl px-8 py-8 mx-20;
 }
 
-.card img {
+.cardImg {
 	@apply max-h-20 w-full rounded-[20px];
 }
 

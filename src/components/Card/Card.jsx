@@ -8,7 +8,7 @@ function Card({ client, address, description, imagen }) {
 
 	return (
 		<div className={Styles.card}>
-			<img src={imagen} alt="" />
+			<img className={Styles.cardImg} src={imagen} />
 			<h2 className={Styles.title}>{client}</h2>
 			<p className={Styles.address}>{address}</p>
 			<p className={Styles.description}>{description}</p>
