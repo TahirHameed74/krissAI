@@ -4,15 +4,15 @@ import { styles } from "./styles";
 import { fadeIn, textVariant } from "../../utils/motion";
 import { projects } from "../../constants";
 
-const Works = () => {
+const Pricing = () => {
 	return (
-		<>
+		<div id="pricing" className="bg-[#01294c]">
 			{/* <motion.div variants={textVariant()}>
 				<p className={"text-center mt-10"}>Plans & Pricing</p>
 			</motion.div> */}
 
 			<div>
-				<p className={"text-center text-3xl text-white pt-10"}>
+				<p className={"text-center text-3xl text-white pt-10 mt-5"}>
 					Plans & Pricing
 				</p>
 			</div>
@@ -22,8 +22,8 @@ const Works = () => {
 					<ProjectCard key={`project-${index}`} index={index} {...project} />
 				))}
 			</div>
-		</>
+		</div>
 	);
 };
 
-export default Works;
+export default Pricing;
