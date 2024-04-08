@@ -41,4 +41,9 @@ export const routes = [
 		href: "#section7",
 		Icon: IoPricetagsOutline,
 	},
+	{
+		title: "Contact Us",
+		href: "#section8",
+		Icon: IoPricetagsOutline,
+	},
 ];

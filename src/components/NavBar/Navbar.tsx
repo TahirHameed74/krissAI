@@ -35,8 +35,9 @@ export const NavDesktop = () => {
 	};
 
 	return (
-		<ul className="sm:hidden lg:flex bg-gradient-to-r from-[#092441] to-[#1f5d94b3]  bg-opacity-0 shadow-md justify-center fixed h-16 w-full lg:items-center gap-5 text-sm font-semibold z-50 text-white">
-			<img className="w-28 mr-[50%] nav-item" src="images/Logo-Kriss-AI.png" />
+		// from-[#092441] to-[#1f5d94b3] bg-gradient-to-r shadow-md
+		<ul className="sm:hidden lg:flex    bg-opacity-0  justify-center fixed h-16 w-full lg:items-center gap-5 text-sm font-semibold z-50 text-white">
+			<img className="w-28 mr-[70%] nav-item" src="images/Logo-Kriss-AI.png" />
 			{/* {routes.map((route) => {
 				const { Icon, href, title } = route;
 				return (
@@ -52,12 +53,12 @@ export const NavDesktop = () => {
 			})} */}
 			<button
 				onClick={() => handleClick("https://app.kriss.ai/")}
-				className=" rounded-3xl h-10 w-16  bg-[#78e4d7] nav-item">
+				className=" rounded-3xl h-12 w-24  bg-[#78e4d7] nav-item">
 				Login
 			</button>
 			<button
 				onClick={() => handleClick("https://app.kriss.ai/register")}
-				className=" rounded-3xl h-10 w-20  bg-[#78e4d7] nav-item">
+				className=" rounded-3xl h-12 w-24  bg-[#78e4d7] nav-item">
 				Sign Up
 			</button>
 		</ul>

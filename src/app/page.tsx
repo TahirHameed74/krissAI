@@ -23,6 +23,9 @@ import About from "@/components/About/About";
 import CaseStudies from "@/components/CaseStudies/CaseStudies";
 import Pricing from "../components/Pricing/Pricing";
 import SideBar from "@/components/SideBar/SideBar";
+import ParticleRing from "@/components/3dScroll/3dScroll";
+import ContactForm from "@/components/ContactUs/ContactUS";
+import Footer from "@/components/Footer/Footer";
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(useGSAP);
 // gsap.registerPlugin(SplitText); // Register SplitText plugin
@@ -210,14 +213,15 @@ export default function Home() {
 		};
 	}, []);
 	return (
-		<>
+		<div className="relative">
 			{/* <ThreeDScroll /> */}
+
 			<NavDesktop />
 			<SideBar
 				currentSection={currentSection}
 				setCurrentSection={setCurrentSection}
 			/>
-			<div className="" ref={main}>
+			<div ref={main}>
 				<section id="section1">
 					<Banner />
 				</section>
@@ -240,6 +244,14 @@ export default function Home() {
 					<Pricing />
 				</section>
 			</div>
-		</>
+			<ParticleRing />
+			<section id="section8">
+				<ContactForm />
+			</section>
+
+			<section id="section9">
+				<Footer />{" "}
+			</section>
+		</div>
 	);
 }
