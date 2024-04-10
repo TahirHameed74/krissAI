@@ -13,6 +13,7 @@ const Features = () => {
 				to interact with patients, doctors, and office staff in a dynamic manner
 			</h2>
 			<video src="/section3.mp4" autoPlay loop muted></video>
+			<div className="overlay"></div>
 		</div>
 	);
 };

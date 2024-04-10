@@ -36,7 +36,7 @@ export const NavDesktop = () => {
 
 	return (
 		// from-[#092441] to-[#1f5d94b3] bg-gradient-to-r shadow-md
-		<ul className="sm:hidden lg:flex    bg-opacity-0  justify-center fixed h-16 w-full lg:items-center gap-5 text-sm font-semibold z-50 text-white">
+		<ul className="sm:hidden lg:flex    bg-opacity-0  justify-center fixed h-16 w-full lg:items-center gap-5 text-sm font-semibold z-30 text-white">
 			<img className="w-28 mr-[70%] nav-item" src="images/Logo-Kriss-AI.png" />
 			{/* {routes.map((route) => {
 				const { Icon, href, title } = route;

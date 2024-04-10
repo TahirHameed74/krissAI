@@ -30,6 +30,7 @@ const Users = () => {
 				</span>
 			</h5>
 			<video src="/section2.mp4" autoPlay loop muted></video>
+			<div className="overlay"></div>
 		</div>
 	);
 };

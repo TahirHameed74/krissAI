@@ -68,20 +68,21 @@ export default function Home() {
 					start: `top top`,
 					scrub: 1,
 					pin: true,
+					end: "+=" + window.innerHeight * 2,
 				},
 			});
 
 			tl.fromTo(
 				"#users>h1",
 				{ opacity: 0, top: "100%" },
-				{ opacity: 1, top: "30%", duration: 30 }
+				{ opacity: 1, top: "30%", duration: 10000 }
 			).to("#users>h1", { opacity: 0, top: "30%", duration: 2 });
 
 			// After h1 fades out, start fading in h2 and move it, but delay this part
 			tl.fromTo(
 				"#users>h2",
 				{ opacity: 0, top: "100%" },
-				{ opacity: 1, top: "30%", duration: 30 }
+				{ opacity: 1, top: "30%", duration: 10000 }
 			).to("#users>h2", {
 				opacity: 0,
 				top: "30%",
@@ -91,7 +92,7 @@ export default function Home() {
 			tl.fromTo(
 				"#users>h3",
 				{ opacity: 0, top: "100%" },
-				{ opacity: 1, top: "30%", duration: 30 }
+				{ opacity: 1, top: "30%", duration: 10000 }
 			).to("#users>h3", {
 				opacity: 0,
 				top: "30%",
@@ -101,7 +102,7 @@ export default function Home() {
 			tl.fromTo(
 				"#users>h4",
 				{ opacity: 0, top: "100%" },
-				{ opacity: 1, top: "30%", duration: 30 }
+				{ opacity: 1, top: "30%", duration: 10000 }
 			).to("#users>h4", {
 				opacity: 0,
 				top: "30%",
@@ -110,7 +111,7 @@ export default function Home() {
 			tl.fromTo(
 				"#users>h5",
 				{ opacity: 0, top: "100%" },
-				{ opacity: 1, top: "30%", duration: 30 }
+				{ opacity: 1, top: "30%", duration: 10000 }
 			).to("#users>h5", {
 				opacity: 0,
 				top: "30%",
@@ -121,7 +122,7 @@ export default function Home() {
 					trigger: `#features`,
 					start: `top top`, // Adjust as needed to control when the animation starts
 					end: "bottom top", // This will give more room for scrolling through animations
-					scrub: true,
+					scrub: 1,
 					pin: true,
 					markers: false, // Remove in production, useful for debugging
 				},
@@ -134,13 +135,13 @@ export default function Home() {
 					{ opacity: 0, top: "100%" },
 					{ opacity: 1, top: "50%", duration: 3 }
 				)
-				.to("#features>h1", { opacity: 0, top: "30%", duration: 3 });
+				.to("#features>h1", { opacity: 0, top: "30%", duration: 10000 });
 
 			// After h1 fades out, start fading in h2 and move it, but delay this part
 			tl1.fromTo(
 				"#features>h2",
 				{ opacity: 0, top: "100%" },
-				{ opacity: 1, top: "50%", duration: 3 },
+				{ opacity: 1, top: "50%", duration: 10000 },
 				">1"
 			);
 
@@ -149,7 +150,6 @@ export default function Home() {
 					trigger: `#about`,
 					start: `top top`,
 					scrub: 1,
-
 					pin: true,
 				},
 			});

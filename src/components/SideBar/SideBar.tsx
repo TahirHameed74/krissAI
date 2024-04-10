@@ -40,7 +40,7 @@ const SideBar = ({ currentSection, setCurrentSection }: SideBarProps) => {
 	// );
 
 	return (
-		<div className="fixed right-8 h-full z-50 top-1/3">
+		<div className="fixed right-8 h-full z-30 top-1/3">
 			<ul className="list-none">
 				{routes.map((route) => {
 					const { href, title } = route;
@@ -65,7 +65,7 @@ const SideBar = ({ currentSection, setCurrentSection }: SideBarProps) => {
 							</a>
 							{/* Conditionally render hovered title */}
 							{hoveredTitle === title && (
-								<div className=" whitespace-nowrap absolute right-6 text-white ">
+								<div className=" whitespace-nowrap absolute right-6 text-white shadow-2xl text-xl ">
 									{title}
 								</div>
 							)}

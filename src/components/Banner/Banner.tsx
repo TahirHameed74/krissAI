@@ -3,14 +3,14 @@ import gsap from "gsap";
 
 const Banner = () => {
 	return (
-		<div id="home">
+		<div className="shadowBanner" id="home">
 			<video
 				className="bannerVideo"
 				src="images/KrissAI.mp4"
 				autoPlay
 				loop
 				muted></video>
-
+			<div className="overlay"></div>
 			<div id="page-bottom">
 				<h3 className="intro">Introduction</h3>
 				<img
