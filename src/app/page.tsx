@@ -154,6 +154,8 @@ export default function Home() {
 				},
 			});
 
+			
+
 			tl2.to("#about>#center-about", {
 				top: `-50%`,
 			});
