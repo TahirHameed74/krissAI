@@ -121,10 +121,11 @@ export default function Home() {
 				scrollTrigger: {
 					trigger: `#features`,
 					start: `top top`, // Adjust as needed to control when the animation starts
-					end: "bottom top", // This will give more room for scrolling through animations
+					// end: "bottom top", // This will give more room for scrolling through animations
 					scrub: 1,
 					pin: true,
 					markers: false, // Remove in production, useful for debugging
+					end: "+=" + window.innerHeight * 2,
 				},
 			});
 
@@ -133,7 +134,7 @@ export default function Home() {
 				.fromTo(
 					"#features>h1",
 					{ opacity: 0, top: "100%" },
-					{ opacity: 1, top: "50%", duration: 3 }
+					{ opacity: 1, top: "30%", duration: 10000 }
 				)
 				.to("#features>h1", { opacity: 0, top: "30%", duration: 10000 });
 
@@ -141,7 +142,7 @@ export default function Home() {
 			tl1.fromTo(
 				"#features>h2",
 				{ opacity: 0, top: "100%" },
-				{ opacity: 1, top: "50%", duration: 10000 },
+				{ opacity: 1, top: "30%", duration: 10000 },
 				">1"
 			);
 
@@ -151,14 +152,25 @@ export default function Home() {
 					start: `top top`,
 					scrub: 1,
 					pin: true,
+					end: "+=" + window.innerHeight * 2,
 				},
 			});
 
-			
+			tl2
+				.fromTo(
+					"#about>#center-about",
+					{ opacity: 0, top: "100%" },
+					{ opacity: 1, top: "30%", duration: 10000 }
+				)
+				.to("#about>#center-about", {
+					opacity: 0,
+					top: "30%",
+					duration: 10000,
+				});
 
-			tl2.to("#about>#center-about", {
-				top: `-50%`,
-			});
+			// tl2.to("#about>#center-about", {
+			// 	top: `-50%`,
+			// });
 
 			var testimonial = gsap.timeline({
 				scrollTrigger: {
