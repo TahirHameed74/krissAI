@@ -6,13 +6,13 @@ import { projects } from "../../constants";
 
 const Pricing = () => {
 	return (
-		<div id="pricing" className="bg-[#01294c]">
+		<div id="pricing" className="bg-[#100919]">
 			{/* <motion.div variants={textVariant()}>
 				<p className={"text-center mt-10"}>Plans & Pricing</p>
 			</motion.div> */}
 
 			<div>
-				<p className={"text-center text-3xl text-white pt-10 mt-5"}>
+				<p className={"text-center text-3xl text-white pt-2 "}>
 					Plans & Pricing
 				</p>
 			</div>

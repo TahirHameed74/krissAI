@@ -26,6 +26,7 @@ import SideBar from "@/components/SideBar/SideBar";
 import ParticleRing from "@/components/3dScroll/3dScroll";
 import ContactForm from "@/components/ContactUs/ContactUS";
 import Footer from "@/components/Footer/Footer";
+import DocumentsKriss from "@/components/DocumentsKriss/DocumentsKrss";
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(useGSAP);
 // gsap.registerPlugin(SplitText); // Register SplitText plugin
@@ -34,6 +35,20 @@ export default function Home() {
 	const ZoomInScrollOut = batch(StickyIn(), FadeIn(), ZoomIn());
 	const FadeUp = batch(Fade(), Move(), Sticky());
 	const main = useRef<HTMLDivElement>(null);
+
+	function animateHeading(timeline: any, headingSelector: any, duration: any) {
+		timeline
+			.fromTo(
+				headingSelector,
+				{ opacity: 1, top: "100%" },
+				{ opacity: 1, top: "10%", duration: duration }
+			)
+			.to(headingSelector, {
+				opacity: 0,
+				top: "10%",
+				duration: 100,
+			});
+	}
 
 	useGSAP(
 		() => {
@@ -72,51 +87,12 @@ export default function Home() {
 				},
 			});
 
-			tl.fromTo(
-				"#users>h1",
-				{ opacity: 0, top: "100%" },
-				{ opacity: 1, top: "30%", duration: 10000 }
-			).to("#users>h1", { opacity: 0, top: "30%", duration: 2 });
+			animateHeading(tl, "#users>h1", 100000);
+			animateHeading(tl, "#users>h2", 100000);
+			animateHeading(tl, "#users>h3", 100000);
+			animateHeading(tl, "#users>h4", 100000);
+			animateHeading(tl, "#users>h5", 100000);
 
-			// After h1 fades out, start fading in h2 and move it, but delay this part
-			tl.fromTo(
-				"#users>h2",
-				{ opacity: 0, top: "100%" },
-				{ opacity: 1, top: "30%", duration: 10000 }
-			).to("#users>h2", {
-				opacity: 0,
-				top: "30%",
-				duration: 2,
-			});
-
-			tl.fromTo(
-				"#users>h3",
-				{ opacity: 0, top: "100%" },
-				{ opacity: 1, top: "30%", duration: 10000 }
-			).to("#users>h3", {
-				opacity: 0,
-				top: "30%",
-				duration: 2,
-			});
-
-			tl.fromTo(
-				"#users>h4",
-				{ opacity: 0, top: "100%" },
-				{ opacity: 1, top: "30%", duration: 10000 }
-			).to("#users>h4", {
-				opacity: 0,
-				top: "30%",
-				duration: 2,
-			});
-			tl.fromTo(
-				"#users>h5",
-				{ opacity: 0, top: "100%" },
-				{ opacity: 1, top: "30%", duration: 10000 }
-			).to("#users>h5", {
-				opacity: 0,
-				top: "30%",
-				duration: 2,
-			});
 			var tl1 = gsap.timeline({
 				scrollTrigger: {
 					trigger: `#features`,
@@ -124,27 +100,12 @@ export default function Home() {
 					// end: "bottom top", // This will give more room for scrolling through animations
 					scrub: 1,
 					pin: true,
-					markers: false, // Remove in production, useful for debugging
 					end: "+=" + window.innerHeight * 2,
 				},
 			});
 
-			// Fade in and move h1, then fade it out
-			tl1
-				.fromTo(
-					"#features>h1",
-					{ opacity: 0, top: "100%" },
-					{ opacity: 1, top: "30%", duration: 10000 }
-				)
-				.to("#features>h1", { opacity: 0, top: "30%", duration: 10000 });
-
-			// After h1 fades out, start fading in h2 and move it, but delay this part
-			tl1.fromTo(
-				"#features>h2",
-				{ opacity: 0, top: "100%" },
-				{ opacity: 1, top: "30%", duration: 10000 },
-				">1"
-			);
+			animateHeading(tl1, "#features>h1", 100000);
+			animateHeading(tl1, "#features>h2", 100000);
 
 			var tl2 = gsap.timeline({
 				scrollTrigger: {
@@ -258,7 +219,8 @@ export default function Home() {
 					<Pricing />
 				</section>
 			</div>
-			<ParticleRing />
+			{/* <DocumentsKriss /> */}
+			{/* <ParticleRing /> */}
 			<section id="section8">
 				<ContactForm />
 			</section>

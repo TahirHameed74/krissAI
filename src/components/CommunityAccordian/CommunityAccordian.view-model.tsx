@@ -5,7 +5,7 @@ function useCommunityViewModel() {
 
 	const handleClick = useCallback(() => {
 		setShow(!show);
-	}, [show, setShow]);
+	}, [show]);
 	return {
 		show,
 		setShow,

@@ -1,5 +1,5 @@
 .root {
-	@apply border-b-[2px] border-[black] py-4 rounded-none	border-[#111B2121];
+	@apply border-b-[2px] border-[black] py-1 rounded-none	border-[#111B2121];
 }
 
 .title {
@@ -9,7 +9,7 @@
 	@apply flex justify-between items-center cursor-pointer;
 }
 .content {
-	@apply pt-1 text-sm leading-5;
+	@apply pt-1 text-xs leading-5;
 }
 .changeColor {
 	filter: brightness(0.3);

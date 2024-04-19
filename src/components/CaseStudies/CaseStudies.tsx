@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import Card from "../Card/Card";
-
+import styles from "./CaseStudies.module.css";
 const CaseStudies = () => {
 	let cards = [
 		{
+			link: "https://www.ideadentistry.com/",
 			client: "Dr. Vu",
 			address: "A General Dentist in Houston, TX",
 			description:
@@ -11,6 +12,7 @@ const CaseStudies = () => {
 			imagen: "./images/drV.png",
 		},
 		{
+			link: "https://www.lifeworksdental.com/",
 			client: "Dr. Tran and Dr. Nguyen",
 			address: "Cosmetic Dentists Located in Memorial City, TX",
 			description:
@@ -19,19 +21,16 @@ const CaseStudies = () => {
 		},
 	];
 	return (
-		<div id="caseStudies" className="bg-white">
+		<div id="caseStudies" className="bg-[#100919]">
 			<div className="text-white testimonial ">
 				<div className="flex flex-col justify-center text-center">
-					<h4 className="text-3xl font-medium my-10 mt-20 text-black">
-						See KRISS.AI at work
-					</h4>
-					<p className="text-xl text-[#1BB5C5]">
-						Click a Case Study and chat with KRISS.AI now
-					</p>
+					<h4 className={styles.heading}>See KRISS.AI</h4>
+					<h4 className={styles.heading2}> at work</h4>
 				</div>
 				<div className="flex justify-center mt-10 ">
 					{cards.map((card) => (
 						<Card
+							link={card.link}
 							client={card.client}
 							address={card.address}
 							description={card.description}

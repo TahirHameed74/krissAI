@@ -1,0 +1,20 @@
+.heading {
+	-webkit-text-fill-color: transparent;
+	background-image: radial-gradient(circle at 100% 100%, #c591fc, #f1e7ff 54%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	@apply text-6xl font-bold mt-14;
+}
+
+.heading2 {
+	-webkit-text-fill-color: transparent;
+	background-image: radial-gradient(
+		circle at 100% 100%,
+		#8c21f8 38%,
+		#a958fa 66%
+	);
+	-webkit-background-clip: text;
+	background-clip: text;
+	display: block;
+	@apply text-6xl font-bold leading-none;
+}

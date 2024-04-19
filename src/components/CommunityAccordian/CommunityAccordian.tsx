@@ -4,21 +4,16 @@ import styles from "./CommunityAccordian.module.css";
 import useCommunityViewModel from "./CommunityAccordian.view-model";
 
 function CommunityAccordian(props: any) {
-	const { question, answer, display } = props;
-	const { show, setShow, handleClick } = useCommunityViewModel();
-
-	useEffect(() => {
-		// Reset the child component's state when the parentState changes
-		setShow(false);
-	}, [display]); // This effect runs when parentState changes
+	const { question, answer, handleClick, show, setShow } = props;
+	// const { show, setShow, handleClick } = useCommunityViewModel();
 
 	return (
 		<div className={styles.root}>
 			<div
 				onClick={handleClick}
-				className={`${styles.wrapper} cursor-pointer transition-all duration-500 ease-out
+				className={`${styles.wrapper} cursor-pointer transition-all duration-500 ease-out 
 					`}>
-				<h1 className={`${styles.title} whites text-lg font-medium`}>
+				<h1 className={`${styles.title} whites text-sm font-medium`}>
 					{question}
 				</h1>
 				<img

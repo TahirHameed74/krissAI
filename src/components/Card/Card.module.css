@@ -1,19 +1,22 @@
 .card {
-	@apply bg-[#01294c] w-96 max-h-full rounded-xl px-8 py-8 mx-20;
+	@apply relative text-white w-96 max-h-full rounded-xl px-8 py-8 mx-20;
+}
+
+.card:hover button {
+	background-color: #8c20f8;
 }
 
 .cardImg {
-	@apply max-h-20 w-full rounded-[20px];
+	transition: transform 0.5s ease-in-out;
+	@apply h-32 w-full rounded-[20px] !overflow-hidden;
+}
+
+.card:hover .cardImg {
+	transform: scale(1.04);
 }
 
 .card h2 {
 	@apply text-xl font-bold mt-3;
-}
-
-.card p {
-	margin: 0;
-	margin-top: 0.5rem;
-	margin-bottom: 1.5rem;
 }
 
 .card .btnn {
@@ -22,12 +25,23 @@
 	align-items: center;
 }
 .title {
-	@apply flex text-start justify-center;
+	transition: 0.5s ease-in-out; /* Smooth transition */
+	@apply flex;
+}
+
+.card:hover .title {
+	opacity: 0.6;
 }
 
 .address {
-	@apply flex text-center justify-center  h-4 py-5;
+	transition: 0.5s ease-in-out; /* Smooth transition */
+	@apply text-sm mt-2;
 }
+
+.card:hover .address {
+	opacity: 0.6;
+}
+
 .description {
-	@apply flex text-start justify-center;
+	@apply flex mt-5 w-11/12;
 }

@@ -3,6 +3,8 @@ const projects = [
 		title: "STANDARD PLAN",
 		price: "$199/Month",
 		description: "$500 Setup Fee",
+		buttonText: "Select Plan",
+		buttonLink: "https://app.kriss.ai/register",
 		benefits: [
 			{
 				title: "Patient Chat (400 queries)",
@@ -29,12 +31,14 @@ const projects = [
 					"KRISS.AI can assist with supply and equipment questions by providing detailed information about various dental tools, materials, and equipment, including their uses, maintenance guidelines, and best practices, helping to streamline operations and ensure optimal use of resources in a dental practice.",
 			},
 		],
-		image: "../images/drV.png",
+		// image: "../images/drV.png",
 	},
 	{
 		title: "PREMIUM LISTING",
 		price: "$299/Month",
 		description: "$500 Setup Fee",
+		buttonText: "Coming Soon",
+		buttonLink: "https://www.kriss.ai/",
 		benefits: [
 			{
 				title: "Patient Chat (700 queries)",
